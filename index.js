@@ -20,7 +20,7 @@ app.use(express.json());
 // Example POST route
 app.post('/mytestapp', (req, res) => {
     console.log("POST request received:", req.body);
-    res.json({ message: "Data received!", yourData: req.body });
+    res.json({ message: "Data has been received! :)", yourData: req.body });
 });
 
 
