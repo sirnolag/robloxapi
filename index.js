@@ -1,12 +1,20 @@
 const express = require('express');
-const app = express()
-// This may vary with your version of JavaScript.
+const app = express();
 
-app.get('/mytestapp', function(request, response) {
-console.log("My get function works");
-    response.send('Hello World!');
+const PORT = process.env.PORT || 3000; // Render needs process.env.PORT
+
+// Route for root ("/") so Render works
+app.get('/', (req, res) => {
+    console.log("Root route hit");
+    res.send('Hello from root!');
 });
 
-app.listen(3000,function(){
-console.log("App listening on port 3000");
+// Your existing test route
+app.get('/mytestapp', (req, res) => {
+    console.log("My get function works");
+    res.send('Hello World!');
+});
+
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
 });
