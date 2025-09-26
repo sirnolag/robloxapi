@@ -15,6 +15,17 @@ app.get('/mytestapp', (req, res) => {
     res.send('Hello World!');
 });
 
+app.use(express.json());
+
+// Example POST route
+app.post('/mytestapp', (req, res) => {
+    console.log("POST request received:", req.body);
+    res.json({ message: "Data received!", yourData: req.body });
+});
+
+
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
 });
+
+
